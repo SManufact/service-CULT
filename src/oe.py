@@ -478,14 +478,14 @@ def stop_service():
         dbg_log('oe::stop_service', 'ERROR: (' + repr(e) + ')')
 
 
-def openWizard():
-    global winOeMain, __cwd__, __oe__
-    try:
-        winOeMain = oeWindows.wizard('service-LibreELEC-Settings-wizard.xml', __cwd__, 'Default', oeMain=__oe__)
-        winOeMain.doModal()
-        winOeMain = oeWindows.mainWindow('service-LibreELEC-Settings-mainWindow.xml', __cwd__, 'Default', oeMain=__oe__)  # None
-    except Exception, e:
-        dbg_log('oe::openWizard', 'ERROR: (' + repr(e) + ')')
+#def openWizard():
+#    global winOeMain, __cwd__, __oe__
+#    try:
+#        winOeMain = oeWindows.wizard('service-LibreELEC-Settings-wizard.xml', __cwd__, 'Default', oeMain=__oe__)
+#        winOeMain.doModal()
+#        winOeMain = oeWindows.mainWindow('service-LibreELEC-Settings-mainWindow.xml', __cwd__, 'Default', oeMain=__oe__)  # None
+#    except Exception, e:
+#        dbg_log('oe::openWizard', 'ERROR: (' + repr(e) + ')')
 
 
 def openConfigurationWindow():

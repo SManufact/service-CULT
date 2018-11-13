@@ -18,8 +18,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgctxt "#600"
-msgid "@DISTRONAME@ Settings"
-msgstr "Impostazioni @DISTRONAME@"
+msgid "Network Settings"
+msgstr "Impostazioni di Rete"
 
 msgctxt "#601"
 msgid "Interface"
@@ -54,8 +54,8 @@ msgid "Architecture: "
 msgstr "Architettura:"
 
 msgctxt "#609"
-msgid "LibreELEC is a minimal Linux distribution purpose built for Kodi media center. LibreELEC is designed to boot fast with an installation process simple enough for anyone to convert a bare HTPC into a fully configured media machine in under 15 minutes."
-msgstr "LibreELEC è una distribuzione Linux minimale costruita attorno a Kodi media center. LibreELEC è progettata per avviarsi rapidamente ed avere un processo di installazione così semplice da permettere a chiunque di realizzare un HTPC completamente configurato in meno di 15 minuti"
+msgid "CULTcenter is the software conceived to run on CULT Station. It is based on LibreELEC, powered by Kodi media center, and runs the front-end emulator EmulationStation with the emulator cores provided by RetroArch."
+msgstr "CULTcenter è il software concepito per essere eseguito su CULT Station. Deriva da LibreELEC, basato su Kodi media center, e gestisce la piattaforma di emulazione EmulationStation con gli emulatori presenti in RetroArch. "
 
 msgctxt "#610"
 msgid "[B]Support:[/B][CR]Web: http://libreelec.tv[CR]Forum: http://forum.libreelec.tv/[CR]Wiki: http://wiki.libreelec.tv[CR][CR][B]Social Media:[/B][CR]IRC: #libreelec on freenode.net (web-based chat is also available from the website)[CR]Twitter: https://twitter.com/libreelec[CR]Facebook: http://www.facebook.com/LibreELEC"
@@ -66,8 +66,8 @@ msgid "Configure a hostname, keyboard type, perform a reset, update, or backups 
 msgstr "Configura un hostname, il tipo di tastiera, effettua un reset, un aggiornamento, un backup od un suo recupero"
 
 msgctxt "#701"
-msgid "Configure network startup options, NTP and VPNs"
-msgstr "Configurazione della rete, dell'NTP e delle VPN"
+msgid "Configure network startup options"
+msgstr "Configurazione della rete"
 
 msgctxt "#702"
 msgid "Manage the Ethernet, Wireless and VPN connections available to the system"
@@ -314,8 +314,8 @@ msgid "Connections"
 msgstr "Connessioni"
 
 msgctxt "#32101"
-msgid "Network"
-msgstr "Rete"
+msgid "General"
+msgstr "Generale"
 
 msgctxt "#32102"
 msgid "Wireless Networks"

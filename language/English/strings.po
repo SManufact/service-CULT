@@ -9,7 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgctxt "#600"
-msgid "@DISTRONAME@ Settings"
+msgid "Network Settings"
 msgstr ""
 
 msgctxt "#601"
@@ -45,7 +45,7 @@ msgid "Architecture: "
 msgstr ""
 
 msgctxt "#609"
-msgid "LibreELEC is a minimal Linux distribution purpose built for Kodi media center. LibreELEC is designed to boot fast with an installation process simple enough for anyone to convert a bare HTPC into a fully configured media machine in under 15 minutes."
+msgid "CULTcenter is the software conceived to run on CULT Station. It is based on LibreELEC, powered by Kodi media center, and runs the front-end emulator EmulationStation with the emulator cores provided by RetroArch."
 msgstr ""
 
 msgctxt "#610"
@@ -57,7 +57,7 @@ msgid "Configure a hostname, keyboard type, perform a reset, update, or backups 
 msgstr ""
 
 msgctxt "#701"
-msgid "Configure network startup options, NTP and VPNs"
+msgid "Configure network startup options"
 msgstr ""
 
 msgctxt "#702"
@@ -325,7 +325,7 @@ msgid "Connections"
 msgstr ""
 
 msgctxt "#32101"
-msgid "Network"
+msgid "General"
 msgstr ""
 
 msgctxt "#32102"

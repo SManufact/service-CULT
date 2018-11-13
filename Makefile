@@ -26,7 +26,7 @@
 
 ADDON_NAME=service.libreelec.settings
 ADDON_VERSION=9.0.0
-DISTRONAME:=LibreELEC
+DISTRONAME:=CULTcenter
 
 SHELL=/bin/bash
 BUILDDIR=build

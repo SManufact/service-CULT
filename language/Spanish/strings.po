@@ -17,8 +17,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgctxt "#600"
-msgid "@DISTRONAME@ Settings"
-msgstr "Ajustes de @DISTRONAME@"
+msgid "Network Settings"
+msgstr "Configuración de Red"
 
 msgctxt "#601"
 msgid "Interface"
@@ -53,8 +53,8 @@ msgid "Architecture: "
 msgstr "Arquitectura:"
 
 msgctxt "#609"
-msgid "Libre Embedded Linux Entertainment Center (LibreELEC) is a minimal Linux distribution purpose built for Kodi media center. LibreELEC is designed to boot fast with an installation process simple enough for anyone to convert a bare HTPC into a fully configured media machine in under 15 minutes."
-msgstr "LibreELEC (Libre Embedded Linux Entertainment Center; Centro de Entretenimiento Embebebido basado en Linux Abierto) es una distribución mínima de Linux compilada especialmente para Kodi. LibreELEC está diseñado para un arranque rápido e incluye un proceso de instalación sencillo que permite que cualquiera pueda convertir un equipo HTPC vacio en un sistema multimedia completamente configurado en menos de 15 minutos."
+msgid "CULTcenter is the software conceived to run on CULT Station. It is based on LibreELEC, powered by Kodi media center, and runs the front-end emulator EmulationStation with the emulator cores provided by RetroArch."
+msgstr "CULTcenter es el software diseñado para ejecutarse en la estación CULT. Se basa en LibreELEC, que es operado por Kodi Media Center, y opera el emulador front-end EmulationStation con los núcleos de emulador proporcionados por RetroArch."
 
 msgctxt "#610"
 msgid "[B]Support:[/B][CR]Web: http://libreelec.tv[CR]Forum: http://forum.libreelec.tv/[CR]Wiki: http://wiki.libreelec.tv[CR][CR][B]Social Media:[/B][CR]IRC: #libreelec on freenode.net (web-based chat is also available from the website)[CR]Twitter: https://twitter.com/libreelec[CR]Facebook: http://www.facebook.com/LibreELEC[CR]Google+: https://plus.google.com/+libreelec"
@@ -65,8 +65,8 @@ msgid "Configure a hostname, keyboard type, perform a reset, update, or backups 
 msgstr "Configura un nombre de host, el tipo teclado, realiza un reinicio, actualiza, o haz copias de seguridad y restauraciones."
 
 msgctxt "#701"
-msgid "Configure network startup options, NTP and VPNs"
-msgstr "Configurar las opciones de inicio de red, NTP y VPNs"
+msgid "Configure network startup options"
+msgstr "Configurar las opciones de inicio de red"
 
 msgctxt "#702"
 msgid "Manage the Ethernet, Wireless and VPN connections available to the system"
@@ -257,8 +257,8 @@ msgid "Connections"
 msgstr "Conexiones"
 
 msgctxt "#32101"
-msgid "Network"
-msgstr "Red"
+msgid "General"
+msgstr "General"
 
 msgctxt "#32102"
 msgid "Wireless Networks"

@@ -18,8 +18,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgctxt "#600"
-msgid "@DISTRONAME@ Settings"
-msgstr "Paramètres @DISTRONAME@"
+msgid "Network Settings"
+msgstr "Paramètres Réseau"
 
 msgctxt "#601"
 msgid "Interface"
@@ -54,8 +54,8 @@ msgid "Architecture: "
 msgstr "Architecture :"
 
 msgctxt "#609"
-msgid "LibreELEC is a minimal Linux distribution purpose built for Kodi media center. LibreELEC is designed to boot fast with an installation process simple enough for anyone to convert a bare HTPC into a fully configured media machine in under 15 minutes."
-msgstr "LibreELEC est une distribution Linux minimaliste créée spécifiquement pour exécuter Kodi. LibreELEC a été créé dans le but de démarrer rapidement sur un processus d'installation simple pour que n'importe qui puisse convertir un HTPC en un centre multimédia totalement configuré en moins de 15 minutes."
+msgid "CULTcenter is the software conceived to run on CULT Station. It is based on LibreELEC, powered by Kodi media center, and runs the front-end emulator EmulationStation with the emulator cores provided by RetroArch."
+msgstr "CULTcenter est le logiciel conçu pour fonctionner sur la station CULT. Il est basé sur LibreELEC, propulsé par Kodi Media Center, et exécute l’émulateur frontal EmulationStation avec les cœurs d’émulateur fournis par RetroArch."
 
 msgctxt "#610"
 msgid "[B]Support:[/B][CR]Web: http://libreelec.tv[CR]Forum: http://forum.libreelec.tv/[CR]Wiki: http://wiki.libreelec.tv[CR][CR][B]Social Media:[/B][CR]IRC: #libreelec on freenode.net (web-based chat is also available from the website)[CR]Twitter: https://twitter.com/libreelec[CR]Facebook: http://www.facebook.com/LibreELEC"
@@ -66,8 +66,8 @@ msgid "Configure a hostname, keyboard type, perform a reset, update, or backups 
 msgstr "Configuration du nom d'hôte, le type de clavier, effectuer une remise à zéro, une mise à jour, une sauvegarde ou une restauration"
 
 msgctxt "#701"
-msgid "Configure network startup options, NTP and VPNs"
-msgstr "Configuration des options de réseau au démarrage, NTP et VPNs"
+msgid "Configure network startup options"
+msgstr "Configuration des options de réseau au démarrage"
 
 msgctxt "#702"
 msgid "Manage the Ethernet, Wireless and VPN connections available to the system"
@@ -314,8 +314,8 @@ msgid "Connections"
 msgstr "Connexions"
 
 msgctxt "#32101"
-msgid "Network"
-msgstr "Réseau"
+msgid "General"
+msgstr "Généraux"
 
 msgctxt "#32102"
 msgid "Wireless Networks"

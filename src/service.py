@@ -72,8 +72,8 @@ class service_thread(threading.Thread):
     def run(self):
         try:
             self.oe.dbg_log('_service_::run', 'enter_function', 0)
-            if self.oe.read_setting('libreelec', 'wizard_completed') == None:
-                threading.Thread(target=self.oe.openWizard).start()
+#            if self.oe.read_setting('libreelec', 'wizard_completed') == None:
+#                threading.Thread(target=self.oe.openWizard).start()
             while self.stopped == False:
                 self.oe.dbg_log('_service_::run', 'WAITING:', 1)
                 (conn, addr) = self.sock.accept()
