@@ -27,6 +27,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import glob
 import xbmc
 import time
 import dbus
@@ -306,7 +307,7 @@ class connmanService(object):
                 10: {'Timeservers.Configuration': 'Timeservers'},
                 }
             self.oe = oeMain
-            self.winOeCon = oeWindows.mainWindow('service-LibreELEC-Settings-mainWindow.xml', self.oe.__cwd__, 'Default', oeMain=oeMain, isChild=True)
+            self.winOeCon = oeWindows.mainWindow('CULT-Network-Settings-mainWindow.xml', self.oe.__cwd__, 'Default', oeMain=oeMain, isChild=True)
             self.servicePath = servicePath
             self.oe.dictModules['connmanNetworkConfig'] = self
             self.service = dbus.Interface(self.oe.dbusSystemBus.get_object('net.connman', servicePath), 'net.connman.Service')
@@ -527,48 +528,7 @@ class connman:
                             'type': 'bool',
                             'dbus': 'Boolean',
                             'InfoText': 726,
-                            },
-                        'Tethering': {
-                            'order': 2,
-                            'name': 32108,
-                            'value': '',
-                            'action': 'set_technologie',
-                            'type': 'bool',
-                            'dbus': 'Boolean',
-                            'parent': {
-                                'entry': 'Powered',
-                                'value': ['1'],
-                                },
-                            'InfoText': 727,
-                            },
-                        'TetheringIdentifier': {
-                            'order': 3,
-                            'name': 32198,
-                            'value': 'LibreELEC-AP',
-                            'action': 'set_technologie',
-                            'type': 'text',
-                            'dbus': 'String',
-                            'parent': {
-                                'entry': 'Tethering',
-                                'value': ['1'],
-                                },
-                            'validate': '^([a-zA-Z0-9](?:[a-zA-Z0-9-\.]*[a-zA-Z0-9]))$',
-                            'InfoText': 728,
-                            },
-                        'TetheringPassphrase': {
-                            'order': 4,
-                            'name': 32107,
-                            'value': ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits) for _ in range(10)),
-                            'action': 'set_technologie',
-                            'type': 'text',
-                            'dbus': 'String',
-                            'parent': {
-                                'entry': 'Tethering',
-                                'value': ['1'],
-                                },
-                            'validate': '^[\\x00-\\x7F]{8,64}$',
-                            'InfoText': 729,
-                            },
+                            },                    
                         },
                     'order': 0,
                     },
@@ -588,78 +548,20 @@ class connman:
                         }},
                     'order': 1,
                     },
-                'Timeservers': {
-                    'order': 4,
-                    'name': 32123,
-                    'dbus': 'Array',
-                    'settings': {
-                        '0': {
-                            'order': 1,
-                            'name': 32124,
-                            'value': '',
-                            'action': 'set_timeservers',
-                            'type': 'text',
-                            'dbus': 'String',
-                            'validate': '^([a-zA-Z0-9](?:[a-zA-Z0-9-\.]*[a-zA-Z0-9]))$|^$',
-                            'InfoText': 732,
-                            },
-                        '1': {
-                            'order': 2,
-                            'name': 32125,
-                            'value': '',
-                            'action': 'set_timeservers',
-                            'type': 'text',
-                            'dbus': 'String',
-                            'validate': '^([a-zA-Z0-9](?:[a-zA-Z0-9-\.]*[a-zA-Z0-9]))$|^$',
-                            'InfoText': 733,
-                            },
-                        '2': {
-                            'order': 3,
-                            'name': 32126,
-                            'value': '',
-                            'action': 'set_timeservers',
-                            'type': 'text',
-                            'dbus': 'String',
-                            'validate': '^([a-zA-Z0-9](?:[a-zA-Z0-9-\.]*[a-zA-Z0-9]))$|^$',
-                            'InfoText': 734,
-                            },
-                        },
-                    'order': 2,
-                    },
-                'advanced': {
+                'bluez': {
                     'order': 6,
-                    'name': 32368,
+                    'name': 32331,
                     'settings': {
-                        'wait_for_network': {
+                        'enabled': {
                             'order': 1,
-                            'name': 32369,
-                            'value': '0',
-                            'action': 'set_network_wait',
+                            'name': 32344,
+                            'value': None,
+                            'action': 'init_bluetooth',
                             'type': 'bool',
-                            'InfoText': 736,
-                            },
-                        'wait_for_network_time': {
-                            'order': 2,
-                            'name': 32370,
-                            'value': '10',
-                            'action': 'set_network_wait',
-                            'type': 'num',
-                            'parent': {
-                                'entry': 'wait_for_network',
-                                'value': ['1'],
-                                },
-                            'InfoText': 737,
-                            },
-                        'netfilter': {
-                            'order': 3,
-                            'name': 32395,
-                            'type': 'multivalue',
-                            'values': [],
-                            'action': 'init_netfilter',
-                            'InfoText': 771,
+                            'InfoText': 720,
                             },
                         },
-                    'order': 4,
+		    'order': 4,
                     },
                 }
 
@@ -736,9 +638,67 @@ class connman:
                 nf_option_str = self.oe._(32397)
             self.struct['advanced']['settings']['netfilter']['value'] = nf_option_str
 
+	    # BLUEZ / OBEX
+
+            if 'bluetooth' in self.oe.dictModules:
+                if os.path.isfile(self.oe.dictModules['bluetooth'].BLUETOOTH_DAEMON):
+                    self.struct['bluez']['settings']['enabled']['value'] = self.oe.get_service_state('bluez')
+                    if os.path.isfile(self.oe.dictModules['bluetooth'].OBEX_DAEMON):
+                        self.struct['bluez']['settings']['obex_enabled']['value'] = self.oe.get_service_state('obexd')
+                        self.struct['bluez']['settings']['obex_root']['value'] = self.oe.get_service_option('obexd', 'OBEXD_ROOT',
+                                self.oe.dictModules['bluetooth'].D_OBEXD_ROOT).replace('"', '')
+                    else:
+                        self.struct['bluez']['settings']['obex_enabled']['hidden'] = True
+                        self.struct['bluez']['settings']['obex_root']['hidden'] = True
+                else:
+                    self.struct['bluez']['hidden'] = 'true'
+
             self.oe.dbg_log('connman::load_values', 'exit_function', 0)
         except Exception, e:
             self.oe.dbg_log('connman::load_values', 'ERROR: (' + repr(e) + ')')
+
+    def init_bluetooth(self, **kwargs):
+        try:
+            self.oe.dbg_log('connman::init_bluetooth', 'enter_function', 0)
+            self.oe.set_busy(1)
+            if 'listItem' in kwargs:
+                self.set_value(kwargs['listItem'])
+            state = 1
+            options = {}
+            if self.struct['bluez']['settings']['enabled']['value'] != '1':
+                state = 0
+                self.struct['bluez']['settings']['obex_enabled']['hidden'] = True
+                self.struct['bluez']['settings']['obex_root']['hidden'] = True
+            else:
+                if 'hidden' in self.struct['bluez']['settings']['obex_enabled']:
+                    del self.struct['bluez']['settings']['obex_enabled']['hidden']
+                if 'hidden' in self.struct['bluez']['settings']['obex_root']:
+                    del self.struct['bluez']['settings']['obex_root']['hidden']
+            self.oe.set_service('bluez', options, state)
+            self.oe.set_busy(0)
+            self.oe.dbg_log('connman::init_bluetooth', 'exit_function', 0)
+        except Exception, e:
+            self.oe.set_busy(0)
+            self.oe.dbg_log('connman::init_bluetooth', 'ERROR: (' + repr(e) + ')', 4)
+
+    def init_obex(self, **kwargs):
+        try:
+            self.oe.dbg_log('connman::init_obex', 'enter_function', 0)
+            self.oe.set_busy(1)
+            if 'listItem' in kwargs:
+                self.set_value(kwargs['listItem'])
+            state = 1
+            options = {}
+            if self.struct['bluez']['settings']['obex_enabled']['value'] == '1':
+                options['OBEXD_ROOT'] = '"%s"' % self.struct['bluez']['settings']['obex_root']['value']
+            else:
+                state = 0
+            self.oe.set_service('obexd', options, state)
+            self.oe.set_busy(0)
+            self.oe.dbg_log('connman::init_obex', 'exit_function', 0)
+        except Exception, e:
+            self.oe.set_busy(0)
+            self.oe.dbg_log('connman::init_obex', 'ERROR: (' + repr(e) + ')', 4)
 
     def menu_connections(self, focusItem, services={}, removed={}, force=False):
         try:
@@ -1200,24 +1160,24 @@ class connman:
         except Exception, e:
             self.oe.dbg_log('system::init_netfilter', 'ERROR: (' + repr(e) + ')')
 
-    def do_wizard(self):
-        try:
-            self.oe.dbg_log('connman::do_wizard', 'enter_function', 0)
-            self.oe.winOeMain.set_wizard_title(self.oe._(32305))
-            self.oe.winOeMain.set_wizard_text(self.oe._(32306))
-            self.oe.winOeMain.set_wizard_button_title('')
-            self.oe.winOeMain.set_wizard_list_title(self.oe._(32309))
-            self.oe.winOeMain.getControl(1391).setLabel('show')
+#    def do_wizard(self):
+#        try:
+#            self.oe.dbg_log('connman::do_wizard', 'enter_function', 0)
+#            self.oe.winOeMain.set_wizard_title(self.oe._(32305))
+#            self.oe.winOeMain.set_wizard_text(self.oe._(32306))
+#            self.oe.winOeMain.set_wizard_button_title('')
+#            self.oe.winOeMain.set_wizard_list_title(self.oe._(32309))
+#            self.oe.winOeMain.getControl(1391).setLabel('show')
 
-            self.oe.winOeMain.getControl(self.oe.winOeMain.buttons[1]['id'
-                                         ]).controlUp(self.oe.winOeMain.getControl(self.oe.winOeMain.guiNetList))
+#            self.oe.winOeMain.getControl(self.oe.winOeMain.buttons[1]['id'
+#                                         ]).controlUp(self.oe.winOeMain.getControl(self.oe.winOeMain.guiNetList))
 
-            self.oe.winOeMain.getControl(self.oe.winOeMain.buttons[1]['id'
-                                         ]).controlLeft(self.oe.winOeMain.getControl(self.oe.winOeMain.guiNetList))
-            self.menu_connections(None)
-            self.oe.dbg_log('connman::do_wizard', 'exit_function', 0)
-        except Exception, e:
-            self.oe.dbg_log('connman::do_wizard', 'ERROR: (' + repr(e) + ')')
+#            self.oe.winOeMain.getControl(self.oe.winOeMain.buttons[1]['id'
+#                                         ]).controlLeft(self.oe.winOeMain.getControl(self.oe.winOeMain.guiNetList))
+#            self.menu_connections(None)
+#            self.oe.dbg_log('connman::do_wizard', 'exit_function', 0)
+#        except Exception, e:
+#            self.oe.dbg_log('connman::do_wizard', 'ERROR: (' + repr(e) + ')')
 
     class monitor:
 
