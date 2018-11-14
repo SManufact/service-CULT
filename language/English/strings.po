@@ -61,7 +61,7 @@ msgid "Configure network startup options"
 msgstr ""
 
 msgctxt "#702"
-msgid "Manage the Ethernet, Wireless and VPN connections available to the system"
+msgid "Manage the Wireless connections available to the system"
 msgstr ""
 
 msgctxt "#703"
