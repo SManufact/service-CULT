@@ -548,7 +548,8 @@ class connman:
                     'order': 1,
                     },
                 'bluez': {
-                    'order': 2,
+		    'hidden': 'true',
+                    'order': 3,
                     'name': 32331,
                     'not_supported': [],
                     'settings': {
@@ -561,6 +562,7 @@ class connman:
                             'InfoText': 720,
                             },
                         },
+		    'order': 2,
                     },
                 }
 
