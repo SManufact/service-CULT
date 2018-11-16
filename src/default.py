@@ -41,4 +41,4 @@ try:
     sock.send('openConfigurationWindow')
     sock.close()
 except Exception, e:
-    xbmc.executebuiltin('Notification("LibreELEC", "%s", 5000, "%sicons/icon.png")' % (_(32390).encode('utf-8'), __media__))
+    xbmc.executebuiltin('Notification("CULT", "%s", 5000, "%sicons/icon.png")' % (_(32390).encode('utf-8'), __media__))
